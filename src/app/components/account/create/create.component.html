@@ -1,0 +1,65 @@
+<form #formSignup="ngForm" (ngSubmit)="signup(formSignup)">
+  <input
+    type="text"
+    name="name"
+    #name="ngModel"
+    [(ngModel)]="user.name"
+    placeholder="Nombres"
+    required
+  />
+
+  <input
+    type="text"
+    name="lastname"
+    #lastname="ngModel"
+    [(ngModel)]="user.lastname"
+    placeholder="Apellidos"
+    required
+  />
+
+  <input
+    type="text"
+    name="username"
+    #username="ngModel"
+    [(ngModel)]="user.username"
+    placeholder="Nombre de usuario"
+    required
+    pattern="[a-z0-9]+"
+  />
+
+  <input
+    type="email"
+    name="email"
+    #email="ngModel"
+    [(ngModel)]="user.email"
+    placeholder="Correo"
+    required
+    pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+  />
+
+  <input
+    type="password"
+    name="password"
+    #password="ngModel"
+    [(ngModel)]="user.password"
+    placeholder="Contraseña"
+    required
+  />
+
+  <div>
+    <button type="submit" [disabled]="!formSignup.form.valid">
+      Crear cuenta
+    </button>
+  </div>
+</form>
+
+<div *ngIf="resendVerify">
+  <span>
+    Si no recibiste el correo de verificación vuelve a solicitarlo haciendo
+    click aquí.
+  </span>
+
+  <button (click)="resendVerification($event)">
+    Reenviar confirmación
+  </button>
+</div>
