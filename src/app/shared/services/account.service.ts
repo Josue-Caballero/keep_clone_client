@@ -20,6 +20,6 @@ export class AccountService {
   }
 
   verifyAccount(token: string) {
-    return this.http.post(this.api + '/auth/verify-account?token=' + token, {});
+    return this.http.post(this.api + `/auth/verify-account?token=${token}`, {});
   }
 }

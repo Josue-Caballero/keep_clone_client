@@ -1,0 +1,19 @@
+<div *ngIf="user">
+  <picture *ngIf="user.photo">
+    <img src="{{ user.storageUrl }}" class="image" width="120" height="100" />
+  </picture>
+  <form #form>
+    <input
+      type="file"
+      id="photo"
+      (change)="loadPhoto($event)"
+      accept="image/png, .jpeg, .jpg"
+    />
+    <button (click)="uploadPhoto()">Subir</button>
+  </form>
+
+  <p>Nombre: {{ user.name }}</p>
+  <p>Apellidos: {{ user.lastname }}</p>
+  <p>Correo: {{ user.email }}</p>
+  <p>Nombre de usuario: {{ user.username }}</p>
+</div>
